@@ -1,0 +1,20 @@
+-- Grouping Sets allow a user to run multiple different group bys and returns each one
+--  This example looks at the rental rate and replacement cost in the dvdrental.tar file
+--  Groups them by 
+--    1. total count
+--    2. rental rate and replacement combinations
+--    3. rental rate
+--    4. replacement costs
+
+SELECT			
+	rental_rate		
+	,replacement_cost		
+	,COUNT(*)		
+FROM film			
+GROUP BY			
+	GROUPING SETS (		
+		(rental_rate, replacement_cost)	
+		,(rental_rate)	
+		,(replacement_cost)	
+		,()	
+		);	
