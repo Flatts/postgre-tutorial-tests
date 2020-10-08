@@ -1,0 +1,6 @@
+--Fetch clause is similar to limit BUT is the standard across all SQL 
+--Always used with Order By to get proper results
+--Syntax:
+
+OFFSET start { ROW | ROWS }				Start is an INT 0 or positive		ROW and Rows are synonyms 	
+FETCH { FIRST | NEXT } [ row_count ] { ROW | ROWS } ONLY				Row count is 1 or greater		First and next are synonyms	
