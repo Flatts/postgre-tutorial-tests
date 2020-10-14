@@ -1,0 +1,31 @@
+-- USING HR database to find Highest Salary
+
+SELECT	
+	employee_id
+	,first_name
+	,last_name
+	,salary
+FROM	
+	employees
+WHERE	
+	salary =
+	(SELECT MAX(salary)
+	FROM employees)
+ORDER BY first_name,last_name	
+;	
+
+
+--Using HR database to find salary greater than average
+SELECT	
+	employee_id
+	,first_name
+	,last_name
+	,salary
+FROM	
+	employees
+WHERE	
+	salary >
+	(SELECT AVG(salary)
+	FROM employees)
+ORDER BY first_name,last_name	
+;	
