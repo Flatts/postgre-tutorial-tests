@@ -1,0 +1,16 @@
+--USING HR Database
+
+SELECT	
+	employee_id
+	,first_name
+	,last_name
+FROM	
+	employees
+WHERE	
+	department_id IN
+--Subquery runs first, returns values in the list
+	(SELECT department_id
+	FROM departments
+	WHERE location_id = 1700)
+ORDER BY first_name,last_name	
+;	
