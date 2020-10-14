@@ -1,0 +1,31 @@
+--The EXISTS operator checks for the existence of rows returned from the subquery. 
+--It returns true if the subquery contains any rows. Otherwise, it returns false.
+
+--HR data base to find departments with one employee with salary > 10,000		
+SELECT		
+	department_name	
+FROM		
+	departments d	
+WHERE		
+	EXISTS (	
+		SELECT 1
+		FROM employees e
+		WHERE salary > 10000
+		AND e.department_id = d.department_id
+	)	
+ORDER BY department_name;
+
+--HR data base to find department withno employees with salary > 10,000		
+SELECT		
+	department_name	
+FROM		
+	departments d	
+WHERE		
+	NOT EXISTS (	
+		SELECT 1
+		FROM employees e
+		WHERE salary > 10000
+		AND e.department_id = d.department_id
+	)	
+ORDER BY department_name		
+		
